@@ -11,9 +11,9 @@ Swiper.use([Mousewheel, Parallax, Pagination, EffectFade]);
 const verticalMenu = ["Геральт", "Йеннифер", "Цири"];
 
 const menuGeralt = [
-  "src/assets/images/person.svg",
-  "src/assets/images/spell-book.svg",
-  "src/assets/images/swords-power.svg",
+  { imageURL: "src/assets/images/person.svg", text: "Главная" },
+  { imageURL: "src/assets/images/spell-book.svg", text: "Биография" },
+  { imageURL: "src/assets/images/swords-power.svg", text: "Боевые навыки" },
 ];
 
 new Swiper(".slider", {
@@ -44,10 +44,11 @@ new Swiper(".slider2", {
     el: ".swiper-pagination",
     clickable: true,
     renderBullet: (index, className) =>
-      '<span class="' +
+      '<div class="' +
       className +
       '">' +
-      `<img src="${menuGeralt[index]}"/>` +
-      "</span>",
+      `<img src="${menuGeralt[index].imageURL}"/>` +
+      `<pagination-extended pagination-text="${menuGeralt[index].text}" empty-closed="true">` +
+      "</div>",
   },
 });

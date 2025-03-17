@@ -10,6 +10,8 @@ export class PaginationBulletExtended extends HTMLElement {
 
   render() {
     const text = this.getAttribute("pagination-text");
+    const emptyClosed = this.getAttribute("empty-closed");
+
     this.className = "pagination-extended-wrapper";
 
     this.onmouseover = () => {
@@ -25,7 +27,9 @@ export class PaginationBulletExtended extends HTMLElement {
     };
 
     if (!this.isOpen) {
-      this.innerHTML = `<div>${text?.substring(0, 1).toUpperCase()}</div>`;
+      this.innerHTML = `<div>${
+        emptyClosed ? "" : text?.substring(0, 1).toUpperCase()
+      }</div>`;
     } else {
       this.innerHTML = `<div>${text?.toUpperCase()}</div>`;
     }
