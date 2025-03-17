@@ -26,9 +26,7 @@ new Swiper(".slider", {
     el: ".swiper-pagination",
     clickable: true,
     renderBullet: (index, className) =>
-      '<div class="' +
-      className +
-      '">' +
+      `<div class="${className}">` +
       `<pagination-extended pagination-text="${verticalMenu[index]}">` +
       `</pagination-extended>` +
       "</div>",
@@ -44,11 +42,9 @@ new Swiper(".slider2", {
     el: ".swiper-pagination",
     clickable: true,
     renderBullet: (index, className) =>
-      '<div class="' +
-      className +
-      '">' +
+      `<div class="${className}">` +
       `<img src="${menuGeralt[index].imageURL}"/>` +
-      `<pagination-extended pagination-text="${menuGeralt[index].text}" empty-closed="true">` +
+      `<pagination-extended pagination-text="${menuGeralt[index].text}" empty-closed="true" direction="v">` +
       "</div>",
   },
 });

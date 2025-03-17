@@ -1,15 +1,20 @@
-.pagination-extended-wrapper{
-    @include full-size;
-    @include transparent-bg($primary-dark, 0.5);
-    @include absolute-full-size;
-    border-radius: 1rem !important;
-    transition: all .3s ease-in-out;
+.pagination-extended-wrapper {
+  @include full-size;
+  @include transparent-bg($primary-dark, 0);
+  @include absolute-full-size;
+  border-radius: 1rem !important;
+  transition: padding 0.3s ease;
 }
-.pagination-extended-wrapper[is-open=true] {
-    right: unset;
-    width: fit-content;
-    white-space: nowrap;
-    padding-inline: 3rem;
-    @include transparent-bg($primary-dark, 1);
-    z-index: 10000;
+.pagination-extended-wrapper[is-open="true"] {
+  right: unset;
+  width: fit-content;
+  white-space: nowrap;
+  padding-inline: 3rem;
+  @include transparent-bg($primary-dark, 1);
+  z-index: 10000;
 }
+
+.pagination-extended-wrapper[direction="v"] {
+    transform: rotate(-90deg) translate(-2rem);
+    transform-origin: top left;
+  }
