@@ -1,0 +1,69 @@
+@mixin pagination-flex($direction: row) {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  @if $direction != row {
+    flex-direction: $direction;
+  }
+}
+
+// .swiper-pagination {
+//   @include card-style(0.5rem);
+//   @include transparent-bg($foreground, 0.5);
+// }
+
+.swiper-pagination-horizontal {
+  @include pagination-flex();
+  left: 50% !important;
+  transform: translate3d(-50%, 0, 0) !important;
+  width: fit-content !important;
+  bottom: 1rem !important;
+}
+
+.swiper-pagination-vertical {
+  @include pagination-flex(column);
+  left: 1rem !important;
+  right: unset !important;
+}
+
+.swiper-pagination-bullet {
+  position: relative !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  border-radius: 1rem !important;
+  text-align: center;
+  line-height: 2rem !important;
+  font-size: 1rem !important;
+  color: $text-light !important;
+  opacity: 1 !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  > img {
+    object-fit: cover;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.2;
+  }
+  @include transparent-bg($primary-dark, 0.5);
+  &:hover {
+    @include transparent-bg($primary-light, 0.7);
+    > img {
+        object-fit: cover;
+        width: 1.5rem;
+        height: 1.5rem;
+        opacity: 0.3;
+      }
+  }
+}
+
+.swiper-pagination-bullet-active {
+  color: $text-light !important;
+  @include transparent-bg($primary, 0.7);
+  > img {
+    object-fit: cover;
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.5;
+  }
+}
