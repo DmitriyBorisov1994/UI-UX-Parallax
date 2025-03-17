@@ -3,8 +3,10 @@ import "./style.scss";
 import "swiper/swiper-bundle.css";
 import { Mousewheel, Parallax, Pagination, EffectFade } from "swiper/modules";
 import { PaginationBulletExtended } from "./components/PaginationBulletExtended";
+import { HeroTitle } from "./components/HeroTitle";
 
 customElements.define("pagination-extended", PaginationBulletExtended);
+customElements.define("hero-title", HeroTitle);
 
 Swiper.use([Mousewheel, Parallax, Pagination, EffectFade]);
 
