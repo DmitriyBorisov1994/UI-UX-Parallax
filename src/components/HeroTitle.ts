@@ -2,6 +2,7 @@ export class HeroTitle extends HTMLElement {
   rendered: boolean;
   isOpen: boolean;
   content: string;
+
   constructor() {
     super();
     this.rendered = false;

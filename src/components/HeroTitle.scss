@@ -2,16 +2,10 @@
 
 .hero-title {
   @include card-style;
-  height: fit-content;
   @include transparent-bg($foreground, 0.5);
+  height: fit-content;
   transition: all 0.7s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    @include transparent-bg($foreground, 0.8);
-    h1 {
-      color: $text-gray-light;
-    }
-  }
+  
   h1 {
     transition: all 0.7s ease-in-out;
     font-family: "Yeseva One", serif;
@@ -19,6 +13,13 @@
     font-style: normal;
     color: $text-gray-lighter;
     font-size: 4rem;
+  }
+  
+  &:hover {
+    @include transparent-bg($foreground, 0.8);
+    h1 {
+      color: $text-gray-light;
+    }
   }
 }
 

@@ -1,0 +1,46 @@
+.listbox-area {
+  @include card-style;
+  padding: 0;
+  @include transparent-bg($foreground, 0.5);
+  overflow: hidden;
+}
+
+.listbox-area [role="listbox"] {
+  &:focus,
+  :focus-visible {
+    border: 1px solid $border;
+  }
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.listbox-area [role="listbox"] [role="group"] {
+  li[role="presentation"] {
+    text-align: center;
+    @include transparent-bg($secondary-dark, 0.5);
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  li[role="option"] {
+    &:not(:last-child) {
+        border-bottom: 1px solid $border;
+      }
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      div{
+        padding: 1rem;
+      }
+      div:first-child {
+        @include transparent-bg($secondary-light, 0.5);
+        width: 120px;
+      }
+      div:last-child {
+        max-width: 380px;
+        flex-grow: 1;
+      }
+    }
+  }
+}

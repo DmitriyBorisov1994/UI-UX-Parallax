@@ -8,6 +8,7 @@
 @import "./pagination.scss";
 @import "./components/PaginationBulletExtended.scss";
 @import "./components/HeroTitle.scss";
+@import "./components/ListBox.scss";
 
 
 * {
@@ -19,6 +20,7 @@
   font-size: 1rem;
   font-weight: 400;
   color: $text-light;
+  list-style: none;
 }
 
 html,

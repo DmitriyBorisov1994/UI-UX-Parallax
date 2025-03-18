@@ -2,12 +2,17 @@ import Swiper from "swiper";
 import "./style.scss";
 import "swiper/swiper-bundle.css";
 import { Mousewheel, Parallax, Pagination, EffectFade } from "swiper/modules";
-import { PaginationBulletExtended, HeroTitle } from "./components";
-import { HeroTitleController } from "./controllers";
-import { getHeroTitleFromSwiper } from "./utils";
+import { PaginationBulletExtended, HeroTitle, ListBox } from "./components";
+import { HeroTitleController, ListBoxController } from "./controllers";
+import {
+  geraltCardData,
+  getHeroCardFromSwiper,
+  getHeroTitleFromSwiper,
+} from "./utils";
 
 customElements.define("pagination-extended", PaginationBulletExtended);
 customElements.define("hero-title", HeroTitle);
+customElements.define("hero-card", ListBox);
 
 Swiper.use([Mousewheel, Parallax, Pagination, EffectFade]);
 
@@ -63,5 +68,11 @@ new Swiper(".slider2", {
       `<img src="${menuGeralt[index].imageURL}"/>` +
       `<pagination-extended pagination-text="${menuGeralt[index].text}" empty-closed="true" direction="v">` +
       "</div>",
+  },
+  on: {
+    afterInit(swiper) {
+      const heroCard = getHeroCardFromSwiper(swiper);
+      heroCard && ListBoxController.control(heroCard).setState(geraltCardData);
+    },
   },
 });
