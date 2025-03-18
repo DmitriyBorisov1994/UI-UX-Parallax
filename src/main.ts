@@ -2,8 +2,9 @@ import Swiper from "swiper";
 import "./style.scss";
 import "swiper/swiper-bundle.css";
 import { Mousewheel, Parallax, Pagination, EffectFade } from "swiper/modules";
-import { PaginationBulletExtended } from "./components/PaginationBulletExtended";
-import { HeroTitle } from "./components/HeroTitle";
+import { PaginationBulletExtended, HeroTitle } from "./components";
+import { HeroTitleController } from "./controllers";
+import { getHeroTitleFromSwiper } from "./utils";
 
 customElements.define("pagination-extended", PaginationBulletExtended);
 customElements.define("hero-title", HeroTitle);
@@ -32,6 +33,20 @@ new Swiper(".slider", {
       `<pagination-extended pagination-text="${verticalMenu[index]}">` +
       `</pagination-extended>` +
       "</div>",
+  },
+  on: {
+    afterInit(swiper) {
+      const heroTitle = getHeroTitleFromSwiper(swiper);
+      HeroTitleController.control(heroTitle).openTitle();
+    },
+    transitionStart(swiper) {
+      const heroTitle = getHeroTitleFromSwiper(swiper);
+      HeroTitleController.control(heroTitle).closeTitle();
+    },
+    transitionEnd(swiper) {
+      const heroTitle = getHeroTitleFromSwiper(swiper);
+      HeroTitleController.control(heroTitle).openTitle();
+    },
   },
 });
 

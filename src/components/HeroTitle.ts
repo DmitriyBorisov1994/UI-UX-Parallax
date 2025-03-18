@@ -2,7 +2,6 @@ export class HeroTitle extends HTMLElement {
   rendered: boolean;
   isOpen: boolean;
   content: string;
-
   constructor() {
     super();
     this.rendered = false;
@@ -13,19 +12,6 @@ export class HeroTitle extends HTMLElement {
 
   render() {
     const text = this.getAttribute("title-text");
-
-    this.onmouseover = () => {
-      if (!this.isOpen) {
-        this.isOpen = true;
-        this.setAttribute("is-open", `${this.isOpen}`);
-      }
-    };
-
-    this.onmouseleave = () => {
-      this.isOpen = false;
-      this.setAttribute("is-open", `${this.isOpen}`);
-    };
-
     this.innerHTML = `
     <div>
     <h1>${text?.toUpperCase()}</h1>
@@ -37,8 +23,14 @@ export class HeroTitle extends HTMLElement {
 
   connectedCallback() {
     const isOpenAttribute = this.getAttribute("is-open");
+
     if (isOpenAttribute === null) {
       this.setAttribute("is-open", `${this.isOpen}`);
+    } else {
+      const open = isOpenAttribute === "true";
+      if (open !== this.isOpen) {
+        this.isOpen = open;
+      }
     }
     if (!this.rendered) {
       this.render();
