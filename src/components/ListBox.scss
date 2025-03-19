@@ -1,5 +1,3 @@
-
-
 .listbox-area {
   @include card-style;
   padding: 0;
@@ -18,10 +16,8 @@
 }
 .listbox-area [role="listbox"][slide="true"] {
   @include swing-in-top-fwd;
-  animation-delay: .7;
+  animation-delay: 0.7;
 }
-
-
 
 .listbox-area [role="listbox"] [role="group"] {
   li[role="presentation"] {
@@ -35,18 +31,26 @@
   }
   li[role="option"] {
     &:not(:last-child) {
-        border-bottom: 1px solid $border;
+      border-bottom: 1px solid $border;
+    }
+    &:hover {
+      div {
+        div:last-child{
+          @include transparent-bg($secondary-light, 0.1);
+        }
       }
+    }
     div {
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
-      div{
+      div {
         padding: 1rem;
+        display: flex;
       }
       div:first-child {
         @include transparent-bg($secondary-light, 0.5);
         width: 120px;
+        justify-content: end;
       }
       div:last-child {
         max-width: 380px;
@@ -57,5 +61,10 @@
 }
 
 @for $i from 1 to 10 {
-  .listbox-area [role="listbox"] [role="group"] li[role="option"]:nth-child(#{$i}) { animation-delay: $i * 0.1s + .4s; }
+  .listbox-area
+    [role="listbox"]
+    [role="group"]
+    li[role="option"]:nth-child(#{$i}) {
+    animation-delay: $i * 0.1s + 0.4s;
+  }
 }

@@ -72,10 +72,12 @@ new Swiper(".slider2", {
   on: {
     afterInit(swiper) {
       const heroCard = getHeroCardFromSwiper(swiper);
+      console.log(heroCard);
       heroCard && ListBoxController.control(heroCard).setState(geraltCardData);
     },
     transitionEnd(swiper) {
       const heroCard = getHeroCardFromSwiper(swiper);
+      console.log(heroCard);
       heroCard && ListBoxController.control(heroCard).startListSlide();
     },
   },
