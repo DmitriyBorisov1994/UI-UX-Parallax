@@ -1,3 +1,4 @@
+import { sleep } from "../utils";
 import { ListBox } from "./../components/Listbox";
 
 type Item = {
@@ -18,6 +19,11 @@ export class ListBoxController {
         element.title = newState.title;
         element.items = newState.items;
         element.render();
+      },
+      async startListSlide() {
+        element.startSlide = true;
+        element.render();
+        element.startSlide = false;
       },
     };
   }

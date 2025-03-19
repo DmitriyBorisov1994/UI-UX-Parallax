@@ -74,5 +74,9 @@ new Swiper(".slider2", {
       const heroCard = getHeroCardFromSwiper(swiper);
       heroCard && ListBoxController.control(heroCard).setState(geraltCardData);
     },
+    transitionEnd(swiper) {
+      const heroCard = getHeroCardFromSwiper(swiper);
+      heroCard && ListBoxController.control(heroCard).startListSlide();
+    },
   },
 });

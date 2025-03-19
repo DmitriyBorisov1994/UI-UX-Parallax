@@ -8,12 +8,14 @@ export class ListBox extends HTMLElement {
   rendered: boolean;
   title: string;
   items: Item[];
+  startSlide: boolean;
 
   constructor() {
     super();
     this.rendered = false;
     this.title = "";
     this.items = [];
+    this.startSlide = false;
     // элемент создан
   }
 
@@ -21,6 +23,7 @@ export class ListBox extends HTMLElement {
     const wrapper = document.createElement("div");
     wrapper.role = "listbox";
     wrapper.tabIndex = 0;
+    wrapper.setAttribute("slide", `${this.startSlide}`);
 
     const ul = document.createElement("ul");
     ul.role = "group";
@@ -34,6 +37,7 @@ export class ListBox extends HTMLElement {
     const itemsArray = this.items.map((item) => {
       const li = document.createElement("li");
       li.role = "option";
+      li.setAttribute("slide", `${this.startSlide}`);
       li.innerHTML = `
       <div>
       <div>

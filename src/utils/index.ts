@@ -16,3 +16,7 @@ export const getHeroCardFromSwiper = (swiper: Swiper) => {
   ) as NodeListOf<ListBox>;
   return Array.from(headers)[swiper.activeIndex];
 };
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(() => resolve(true), ms));
+}

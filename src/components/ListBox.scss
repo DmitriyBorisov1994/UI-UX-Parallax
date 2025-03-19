@@ -1,3 +1,5 @@
+
+
 .listbox-area {
   @include card-style;
   padding: 0;
@@ -14,6 +16,12 @@
     outline: none;
   }
 }
+.listbox-area [role="listbox"][slide="true"] {
+  @include swing-in-top-fwd;
+  animation-delay: .7;
+}
+
+
 
 .listbox-area [role="listbox"] [role="group"] {
   li[role="presentation"] {
@@ -21,6 +29,9 @@
     @include transparent-bg($secondary-dark, 0.5);
     font-size: 2rem;
     text-transform: uppercase;
+  }
+  li[slide="true"] {
+    @include slide-in-blurred-left;
   }
   li[role="option"] {
     &:not(:last-child) {
@@ -43,4 +54,8 @@
       }
     }
   }
+}
+
+@for $i from 1 to 10 {
+  .listbox-area [role="listbox"] [role="group"] li[role="option"]:nth-child(#{$i}) { animation-delay: $i * 0.1s + .4s; }
 }
