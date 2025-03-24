@@ -11,10 +11,8 @@ export const getHeroTitleFromSwiper = (swiper: Swiper) => {
 };
 
 export const getHeroCardFromSwiper = (swiper: Swiper) => {
-  const headers = swiper.el.querySelectorAll(
-    "hero-card"
-  ) as NodeListOf<ListBox>;
-  return Array.from(headers)[swiper.activeIndex];
+  const cards = swiper.el.querySelectorAll("hero-card") as NodeListOf<ListBox>;
+  return Array.from(cards);
 };
 
 export function sleep(ms: number) {

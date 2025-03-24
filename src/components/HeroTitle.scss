@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap");
 
 .hero-title {
   @include card-style;
@@ -8,11 +7,11 @@
   
   h1 {
     transition: all 0.7s ease-in-out;
-    font-family: "Yeseva One", serif;
     font-weight: 400;
     font-style: normal;
     color: $text-gray-lighter;
-    font-size: 4rem;
+    font-size: 5rem;
+    line-height: 5rem;
   }
   
   &:hover {

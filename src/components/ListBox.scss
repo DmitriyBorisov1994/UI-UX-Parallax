@@ -23,7 +23,7 @@
   li[role="presentation"] {
     text-align: center;
     @include transparent-bg($secondary-dark, 0.5);
-    font-size: 2rem;
+    font-size: 3rem;
     text-transform: uppercase;
   }
   li[slide="true"] {
@@ -49,12 +49,11 @@
       }
       div:first-child {
         @include transparent-bg($secondary-light, 0.5);
-        width: 120px;
+        width: 220px;
         justify-content: end;
       }
       div:last-child {
-        max-width: 380px;
-        flex-grow: 1;
+        width: 580px;
       }
     }
   }

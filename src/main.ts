@@ -6,6 +6,7 @@ import { PaginationBulletExtended, HeroTitle, ListBox } from "./components";
 import { HeroTitleController, ListBoxController } from "./controllers";
 import {
   geraltCardData,
+  geraltCombatCardData,
   getHeroCardFromSwiper,
   getHeroTitleFromSwiper,
 } from "./utils";
@@ -55,6 +56,8 @@ new Swiper(".slider", {
   },
 });
 
+const geraltCards = [geraltCardData, geraltCombatCardData];
+
 new Swiper(".slider2", {
   direction: "horizontal",
   speed: 800,
@@ -71,14 +74,41 @@ new Swiper(".slider2", {
   },
   on: {
     afterInit(swiper) {
-      const heroCard = getHeroCardFromSwiper(swiper);
-      console.log(heroCard);
-      heroCard && ListBoxController.control(heroCard).setState(geraltCardData);
+      const heroCards = getHeroCardFromSwiper(swiper);
+      heroCards.forEach((card, idx) =>
+        ListBoxController.control(card).setState(geraltCards[idx])
+      );
     },
     transitionEnd(swiper) {
       const heroCard = getHeroCardFromSwiper(swiper);
-      console.log(heroCard);
-      heroCard && ListBoxController.control(heroCard).startListSlide();
+      heroCard &&
+        ListBoxController.control(
+          heroCard[swiper.activeIndex - 1]
+        ).startListSlide();
+    },
+    touchMove(swiper, event) {
+      const noSwipeList = Array.from(swiper.el.querySelectorAll("[no-swipe]"));
+      noSwipeList.forEach((elem) => elem.classList.add("swiper-no-swiping"));
+      const isTargetInNoSwipeList = noSwipeList.some((el) =>
+        el.contains(event.target as Node)
+      );
+      if (isTargetInNoSwipeList) {
+        swiper.allowSlideNext = false;
+      } else {
+        swiper.allowSlideNext = true;
+      }
+    },
+    touchMoveOpposite(swiper, event) {
+      const noSwipeList = Array.from(swiper.el.querySelectorAll("[no-swipe]"));
+      noSwipeList.forEach((elem) => elem.classList.add("swiper-no-swiping"));
+      const isTargetInNoSwipeList = noSwipeList.some((el) =>
+        el.contains(event.target as Node)
+      );
+      if (isTargetInNoSwipeList) {
+        swiper.allowSlideNext = false;
+      } else {
+        swiper.allowSlideNext = true;
+      }
     },
   },
 });
