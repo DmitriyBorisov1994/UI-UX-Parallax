@@ -2,6 +2,7 @@ import Swiper from "swiper";
 import { HeroTitle, ListBox } from "../components";
 
 export * from "./geraltCardData";
+export * from "./jenniferCardData";
 
 export const getHeroTitleFromSwiper = (swiper: Swiper) => {
   const headers = swiper.el.querySelectorAll(

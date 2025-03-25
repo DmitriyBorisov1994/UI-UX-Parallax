@@ -1,4 +1,4 @@
-export const geraltCardData = {
+export const jenniferCardData = {
   title: "Йеннифер из Венгерберга",
   items: [
     {
