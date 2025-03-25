@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Yeseva+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=Yeseva+One&display=swap");
 
 @import "./colors.scss";
 @import "./mixins.scss";
@@ -9,7 +9,6 @@
 @import "./components/PaginationBulletExtended.scss";
 @import "./components/HeroTitle.scss";
 @import "./components/ListBox.scss";
-
 
 * {
   margin: 0;
@@ -68,7 +67,8 @@ header {
 }
 
 .slider,
-.slider2 {
+.slider2,
+.slider3 {
   @include full-size;
 }
 
@@ -108,11 +108,10 @@ header {
   align-items: center;
 }
 
-.title-page{
+.title-page {
   @include full-size;
   display: flex;
   justify-content: end;
-  // align-items: center;
 }
 
 .item-card {

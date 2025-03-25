@@ -79,6 +79,75 @@ new Swiper(".slider2", {
         ListBoxController.control(card).setState(geraltCards[idx])
       );
     },
+    transitionStart(swiper) {
+      const heroCard = getHeroCardFromSwiper(swiper);
+      heroCard.forEach((card) =>
+        ListBoxController.control(card).resetListSlide()
+      );
+    },
+    transitionEnd(swiper) {
+      console.log("end", swiper.activeIndex);
+      const heroCard = getHeroCardFromSwiper(swiper);
+      heroCard &&
+        ListBoxController.control(
+          heroCard[swiper.activeIndex - 1]
+        ).startListSlide();
+    },
+    touchMove(swiper, event) {
+      const noSwipeList = Array.from(swiper.el.querySelectorAll("[no-swipe]"));
+      noSwipeList.forEach((elem) => elem.classList.add("swiper-no-swiping"));
+      const isTargetInNoSwipeList = noSwipeList.some((el) =>
+        el.contains(event.target as Node)
+      );
+      if (isTargetInNoSwipeList) {
+        swiper.allowSlideNext = false;
+      } else {
+        swiper.allowSlideNext = true;
+      }
+    },
+    touchMoveOpposite(swiper, event) {
+      const noSwipeList = Array.from(swiper.el.querySelectorAll("[no-swipe]"));
+      noSwipeList.forEach((elem) => elem.classList.add("swiper-no-swiping"));
+      const isTargetInNoSwipeList = noSwipeList.some((el) =>
+        el.contains(event.target as Node)
+      );
+      if (isTargetInNoSwipeList) {
+        swiper.allowSlideNext = false;
+      } else {
+        swiper.allowSlideNext = true;
+      }
+    },
+  },
+});
+
+new Swiper(".slider3", {
+  direction: "horizontal",
+  speed: 800,
+  effect: "fade",
+  fadeEffect: { crossFade: true },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    renderBullet: (index, className) =>
+      `<div class="${className}">` +
+      `<img src="${menuGeralt[index].imageURL}"/>` +
+      `<pagination-extended pagination-text="${menuGeralt[index].text}" empty-closed="true" direction="v">` +
+      "</div>",
+  },
+  on: {
+    afterInit(swiper) {
+      const heroCards = getHeroCardFromSwiper(swiper);
+      heroCards.forEach((card, idx) =>
+        ListBoxController.control(card).setState(geraltCards[idx])
+      );
+    },
+    transitionStart(swiper) {
+      const heroCard = getHeroCardFromSwiper(swiper);
+      heroCard &&
+        ListBoxController.control(
+          heroCard[swiper.activeIndex - 1]
+        ).resetListSlide();
+    },
     transitionEnd(swiper) {
       const heroCard = getHeroCardFromSwiper(swiper);
       heroCard &&

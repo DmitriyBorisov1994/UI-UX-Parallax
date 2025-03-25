@@ -14,9 +14,11 @@
     outline: none;
   }
 }
+.listbox-area [role="listbox"][slide="false"] {
+  opacity: 0;
+}
 .listbox-area [role="listbox"][slide="true"] {
   @include swing-in-top-fwd;
-  animation-delay: 0.7;
 }
 
 .listbox-area [role="listbox"] [role="group"] {

@@ -23,7 +23,10 @@ export class ListBoxController {
       async startListSlide() {
         element.startSlide = true;
         element.render();
+      },
+      async resetListSlide() {
         element.startSlide = false;
+        element.render();
       },
     };
   }
