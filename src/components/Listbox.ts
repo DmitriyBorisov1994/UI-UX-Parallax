@@ -32,7 +32,7 @@ export class ListBox extends HTMLElement {
     const presentationLi = document.createElement("li");
     presentationLi.role = "presentation";
     presentationLi.id = this.title;
-    presentationLi.innerText = this.title;
+    presentationLi.innerHTML = `<h4>${this.title}</h4>`;
 
     const itemsArray = this.items.map((item) => {
       const li = document.createElement("li");

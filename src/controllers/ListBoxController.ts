@@ -1,4 +1,3 @@
-import { sleep } from "../utils";
 import { ListBox } from "./../components/Listbox";
 
 type Item = {

@@ -5,11 +5,12 @@ import { HeroTitleController, ListBoxController } from "./controllers";
 import {
   geraltCardData,
   jenniferCardData,
+  jenniferCombatCardData,
   geraltCombatCardData,
   getHeroCardFromSwiper,
   getHeroTitleFromSwiper,
+  SwiperFactory,
 } from "./utils";
-import { SwiperFactory } from "./utils/swiper/SwiperFactory";
 
 customElements.define("pagination-extended", PaginationBulletExtended);
 customElements.define("hero-title", HeroTitle);
@@ -27,7 +28,10 @@ const menuHorizontal = [
   { imageURL: "src/assets/images/swords-power.svg", text: "Боевые навыки" },
 ];
 
-SwiperFactory.create({
+const geraltCards = [geraltCardData, geraltCombatCardData];
+const jenniferCards = [jenniferCardData, jenniferCombatCardData];
+
+const mainSwiper = SwiperFactory.create({
   type: "vertical",
   selector: ".slider",
   menu: verticalMenu,
@@ -49,8 +53,6 @@ SwiperFactory.create({
   },
 });
 
-const geraltCards = [geraltCardData, geraltCombatCardData];
-
 SwiperFactory.create({
   type: "horizontal",
   selector: ".slider2",
@@ -62,6 +64,8 @@ SwiperFactory.create({
         heroCards.forEach((card, idx) =>
           ListBoxController.control(card).setState(geraltCards[idx])
         );
+        const heroTitle = getHeroTitleFromSwiper(swiper);
+        heroTitle.onclick = () => swiper.slideNext();
       },
       transitionStart(swiper) {
         const heroCard = getHeroCardFromSwiper(swiper);
@@ -108,8 +112,6 @@ SwiperFactory.create({
   },
 });
 
-const jenniferCards = [jenniferCardData, jenniferCardData];
-
 SwiperFactory.create({
   type: "horizontal",
   selector: ".slider3",
@@ -121,6 +123,8 @@ SwiperFactory.create({
         heroCards.forEach((card, idx) =>
           ListBoxController.control(card).setState(jenniferCards[idx])
         );
+        const heroTitle = getHeroTitleFromSwiper(swiper);
+        heroTitle.onclick = () => swiper.slideNext();
       },
       transitionStart(swiper) {
         const heroCard = getHeroCardFromSwiper(swiper);
@@ -165,4 +169,9 @@ SwiperFactory.create({
       },
     },
   },
+});
+
+const appTitle = document.querySelector(".app-title");
+appTitle?.addEventListener("click", () => {
+  mainSwiper.slideTo(0);
 });
