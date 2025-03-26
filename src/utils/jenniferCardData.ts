@@ -23,10 +23,6 @@ export const jenniferCardData = {
       content: "Магическая деятельница",
     },
     {
-      subtitle: "Родители",
-      content: "",
-    },
-    {
       subtitle: "Партнер(ы)",
       content: "Геральт из Ривии, Истредд, Крах ан Крайт",
     },
