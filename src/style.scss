@@ -53,7 +53,6 @@ h3 {
 }
 
 header {
-  @include content-padding-inline;
   @include transparent-bg($foreground, 0.5);
   position: absolute;
   top: 0;
@@ -66,6 +65,7 @@ header {
   color: #fbfbfb;
   font-weight: 700;
   text-transform: uppercase;
+  padding-inline: 1rem;
   h1{
     cursor: pointer;
   }
@@ -118,6 +118,14 @@ header {
   @include full-size;
   display: flex;
   justify-content: end;
+}
+
+.title-page-h-right{
+  justify-content: start;
+}
+
+.title-page-v-center {
+  align-items: center;
 }
 
 .item-card {

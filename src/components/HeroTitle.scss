@@ -5,13 +5,15 @@
   height: fit-content;
   transition: all 0.7s ease-in-out;
   cursor: pointer;
+  max-width: fit-content;
   h1 {
     transition: all 0.7s ease-in-out;
     font-weight: 400;
     font-style: normal;
     color: $text-light;
-    font-size: 5rem;
-    line-height: 5rem;
+    font-size: 4rem;
+    line-height: 4rem;
+    text-align: center;
   }
   
   &:hover {
@@ -31,8 +33,10 @@
 
 .content {
   color: $text-gray-lighter;
-  text-align: right;
-  line-height: 2rem;
+  text-align: center;
+  line-height: 1rem;
+  max-width: 70%;
+  margin: 0 auto;
 }
 
 .content[is-open="false"] {
