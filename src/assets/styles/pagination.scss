@@ -47,7 +47,7 @@
   }
   @include transparent-bg($primary-dark, 0.5);
   &:hover {
-    @include transparent-bg($primary-light, 0.7);
+    @include transparent-bg($primary-light, 0.8);
     > img {
         object-fit: cover;
         width: 1.5rem;
@@ -59,7 +59,7 @@
 
 .swiper-pagination-bullet-active {
   color: $text-light !important;
-  @include transparent-bg($primary, 0.7);
+  @include transparent-bg($primary, 0.8);
   > img {
     object-fit: cover;
     width: 1.5rem;
