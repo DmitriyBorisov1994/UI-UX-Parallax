@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap");
 
-@import "./colors.scss";
-@import "./mixins.scss";
-@import "./animations.scss";
+@import "./assets/styles/colors.scss";
+@import "./assets/styles/mixins.scss";
+@import "./assets/styles/animations.scss";
 
-@import "./pagination.scss";
+@import "./assets/styles/pagination.scss";
 @import "./components/PaginationBulletExtended.scss";
 @import "./components/HeroTitle.scss";
 @import "./components/ListBox.scss";
