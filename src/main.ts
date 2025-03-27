@@ -7,11 +7,12 @@ import {
   jenniferCardData,
   jenniferCombatCardData,
   geraltCombatCardData,
+  ciriCardData,
+  ciriCombatCardData,
   getHeroCardFromSwiper,
   getHeroTitleFromSwiper,
   SwiperFactory,
 } from "./utils";
-import { ciriCardData, ciriCombatCardData } from "./utils/ciriCardData";
 
 customElements.define("pagination-extended", PaginationBulletExtended);
 customElements.define("hero-title", HeroTitle);
